@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>RubyHolic</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2020-04-02T21:53:13+07:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Ali</name>
+   <email>me@situsali.id</email>
+ </author>
+
+ 
+ <entry>
+   <title>Integrasi Bulma dan Material Design Icon di Rails 6 dengan Webpacker</title>
+   <link href="http://localhost:4000/integrasi-bulma-dan-material-design-icon-di-rails-6-dengan-webpacker"/>
+   <updated>2020-03-31T11:04:00+07:00</updated>
+   <id>http://localhost:4000/integrasi-bulma-dan-material-design-icon-di-rails-6-dengan-webpacker</id>
+   <content type="html">&lt;p&gt;Bulma merupakan salah satu CSS fremework yang sedang naik daun saat ini. Salah satu yang saya suka dari Bulma adalah ia hanya CSS tanpa JS, berbeda dengan Bootstrap yang memerlukan JS (jQuery, popper.js). Karena Bulma hanya CSS otomatis cara integrasi di Rails 6 dengan Webpacker sangatlah mudah.&lt;/p&gt;
+
+&lt;p&gt;Berikut ini cara integrasi Bulma di Rails 6 dengan Webpacker:&lt;/p&gt;
+
+&lt;h2 id=&quot;bulma&quot;&gt;Bulma&lt;/h2&gt;
+
+&lt;p&gt;Pertama-tama tambahkan dulu Bulma dengan yarn.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add bulma
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kemudian tinggal kita import dengan edit pada file &lt;code class=&quot;highlighter-rouge&quot;&gt;app/javascript/packs/application.js&lt;/code&gt; lalu isi dengan skrip berikut&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bulma&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Selesai kalian tinggal compile assets nya dengan perintah berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails assets:precompile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Untuk mengetes Bulma suda berjalan di Rails, kalian tinggal coba ambil sample code di dokumentasi Bulma.&lt;/p&gt;
+
+&lt;h2 id=&quot;material-design-icon&quot;&gt;Material Design Icon&lt;/h2&gt;
+
+&lt;p&gt;Nah, kalau Material Design Icon atau disingkat dengan MDI sama seperti Fontawesome yakni web font. Integrasi MDI di Rails juga sangat mudah. Yang pertama dilakukan adalah:&lt;/p&gt;
+
+&lt;p&gt;Tambahkan MDI dengan yarn:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add @mdi/font
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lalu jangan lupa import css di &lt;code class=&quot;highlighter-rouge&quot;&gt;app/javascript/packs/application.js&lt;/code&gt; isi dengan skrip berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@mdi/font/scss/materialdesignicons&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Seperti biasa jika kita menambahkan assets wajib untuk melakukan precompile di Rails agar assets tersebut dapat dipanggil.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails assets:precompile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sekarang kalian tinggal coba di view kalian. Contohnya:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mdi mdi-account-circle&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Semoga bermanfaat :)&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Script Mengganti Versi pada File Migration</title>
+   <link href="http://localhost:4000/script-mengganti-versi-pada-file-migration"/>
+   <updated>2020-03-23T15:04:00+07:00</updated>
+   <id>http://localhost:4000/script-mengganti-versi-pada-file-migration</id>
+   <content type="html">&lt;p&gt;Ketika upgrade Rails, saya melakukan drop database. Tujuannya untuk memastikan seluruhnya berjalan dengan baik, jika aplikasi saya di setup dari awal. Yang terjadi adalah tidak saya mengalami error seperti berikut:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;StandardError: An error has occurred, this and all later migrations canceled:
+
+Directly inheriting from ActiveRecord::Migration is not supported. Please specify the Rails release the migration was written for:
+
+  class RolifyCreateRoles &amp;lt; ActiveRecord::Migration[4.2]
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Skripnya sebagai berikut:&lt;/p&gt;
+
+&lt;h2 id=&quot;khusus-pengguna-gnulinux&quot;&gt;Khusus Pengguna GNU/Linux&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rl&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ActiveRecord::Migration$&quot;&lt;/span&gt; db | xargs &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/ActiveRecord::Migration/ActiveRecord::Migration[5.1]/g'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pengguna-macos&quot;&gt;Pengguna macOS&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rl&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ActiveRecord::Migration$&quot;&lt;/span&gt; db | xargs &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;s/ActiveRecord::Migration/ActiveRecord::Migration[5.1]/g&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;sumber&quot;&gt;Sumber&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/RolifyCommunity/rolify/issues/444&quot;&gt;https://github.com/RolifyCommunity/rolify/issues/444&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Menjalankan Rails 6 di Nginx dengan Puma</title>
+   <link href="http://localhost:4000/menjalankan-rails-6-di-nginx-dengan-puma"/>
+   <updated>2020-02-25T14:48:00+07:00</updated>
+   <id>http://localhost:4000/menjalankan-rails-6-di-nginx-dengan-puma</id>
+   <content type="html">&lt;p&gt;Mendaringkan aplikasi &lt;code class=&quot;highlighter-rouge&quot;&gt;rails&lt;/code&gt;. Kita bisa memanfaatkan &lt;code class=&quot;highlighter-rouge&quot;&gt;puma&lt;/code&gt; sebagai &lt;code class=&quot;highlighter-rouge&quot;&gt;reverse-proxy&lt;/code&gt; yang nantinya bisa kita integrasikan dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt;. Berikut ini caranya:&lt;/p&gt;
+
+&lt;p&gt;Pertama-tama kita sunting berkas &lt;code class=&quot;highlighter-rouge&quot;&gt;config/puma.rb&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;## letakan app_dir paling atas&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app_dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;expand_path&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'../..'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;__FILE__&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;### untuk bind bebas mau ditaru di mana pun, yang terpenting sesudah app_dir&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SOCKETFILE&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;unix://&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app_dir&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/tmp/sockets/puma.sock&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Kemudian buat &lt;em&gt;service file&lt;/em&gt; menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;systemd&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo touch&lt;/span&gt; /etc/systemd/system/puma.service
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vim /etc/systemd/system/puma.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Asumsi berkas &lt;code class=&quot;highlighter-rouge&quot;&gt;rails&lt;/code&gt; kalian terletak di &lt;code class=&quot;highlighter-rouge&quot;&gt;/home/web/rails&lt;/code&gt;, skrip &lt;code class=&quot;highlighter-rouge&quot;&gt;systemd&lt;/code&gt; -nya sebagai berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[Unit]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Puma Rails Server&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;After&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;network.target&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[Service]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;simple&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;web&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;WorkingDirectory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/home/web/rails/&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;ExecStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/home/web/.rbenv/shims/puma -C /home/web/rails/config/puma.rb /home/web/rails/config.ru&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;ExecStop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/home/web/.rbenv/shims/pumactl -S /home/web/rails/tmp/pids/server.pid stop&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;TimeoutSec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;15&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;Restart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;always&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[Install]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;multi-user.target&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Pada skrip di atas &lt;code class=&quot;highlighter-rouge&quot;&gt;puma&lt;/code&gt; berada di direktori &lt;code class=&quot;highlighter-rouge&quot;&gt;.rbenv/shims&lt;/code&gt; ini karena contoh di sini untuk pengguna &lt;a href=&quot;https://rubyholic.github.io/rbenv/2020/01/31/install-rbenv.html&quot;&gt;rbenv&lt;/a&gt;. Untuk memastikan di mana &lt;code class=&quot;highlighter-rouge&quot;&gt;puma&lt;/code&gt; berada kalian bisa menggunakan perintah &lt;code class=&quot;highlighter-rouge&quot;&gt;which&lt;/code&gt;, contoh:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;which puma
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;which pumactl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Setelah selesai, tinggal kita &lt;em&gt;reload&lt;/em&gt; dan jalankan &lt;code class=&quot;highlighter-rouge&quot;&gt;puma&lt;/code&gt; -nya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl daemon-reload
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start puma.service
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl status puma
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jika sudah hijau berati kita sudah berhasil membuat &lt;code class=&quot;highlighter-rouge&quot;&gt;puma&lt;/code&gt; dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;systemd&lt;/code&gt;.
+Langkah selanjutnya adalah kita buat &lt;code class=&quot;highlighter-rouge&quot;&gt;server block&lt;/code&gt; di Nginx. Dan masukan konfirgurasinya seperti berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-nginx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;k&quot;&gt;upstream&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;unix:///home/web/rails/tmp/sockets/puma.sock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;/home/web/rails/public/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kn&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kn&quot;&gt;try_files&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;@app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kn&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;@app&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kn&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;X-Forwarded-For&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$http_host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kn&quot;&gt;proxy_redirect&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;khusus-pengguna-https&quot;&gt;Khusus Pengguna https&lt;/h3&gt;
+
+&lt;p&gt;Ubah pada baris &lt;code class=&quot;highlighter-rouge&quot;&gt;@app&lt;/code&gt; menjadi seperti berikut:&lt;/p&gt;
+&lt;div class=&quot;language-nginx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;....&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;@app&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;X-Forwarded-For&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$http_host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;X-Forwarded-Ssl&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;proxy_redirect&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Terakhir tinggal kita &lt;em&gt;restart&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nginx &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Integrasi Bootstrap di Rails 6 dengan Webpack</title>
+   <link href="http://localhost:4000/integrasi-bootstrap-di-rails-6-dengan-webpack"/>
+   <updated>2020-02-25T14:34:00+07:00</updated>
+   <id>http://localhost:4000/integrasi-bootstrap-di-rails-6-dengan-webpack</id>
+   <content type="html">&lt;p&gt;Jika kalian terbiasa dengan css framework seperti &lt;code class=&quot;highlighter-rouge&quot;&gt;bootstrap&lt;/code&gt; mungkin kalian akan mengintegrasikan pula pada projek &lt;code class=&quot;highlighter-rouge&quot;&gt;rails&lt;/code&gt; kalian. Kali ini saya ingin berbagi mengenai cara mengintegrasikan &lt;code class=&quot;highlighter-rouge&quot;&gt;bootstrap&lt;/code&gt; di &lt;code class=&quot;highlighter-rouge&quot;&gt;rails 6&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dikarenakan &lt;code class=&quot;highlighter-rouge&quot;&gt;rails 6&lt;/code&gt; sudah memakai &lt;code class=&quot;highlighter-rouge&quot;&gt;webpack&lt;/code&gt; jadi kita dapat dengan mudah memasang &lt;code class=&quot;highlighter-rouge&quot;&gt;bootstrap&lt;/code&gt; dari &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;. Berikut caranya:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yarn add bootstrap jquery popper.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kemudian tambahkan skrip di bawah ini di berkas &lt;code class=&quot;highlighter-rouge&quot;&gt;config/webpack/environment.js&lt;/code&gt; :&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;environment&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@rails/webpacker&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;webpack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;webpack&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Provide&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;webpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ProvidePlugin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;jquery&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;jquery&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;Popper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;popper.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;environment&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Kemudian tambahkan juga skrip di bawah ini pada berkas &lt;code class=&quot;highlighter-rouge&quot;&gt;app/javascript/packs/application.js&lt;/code&gt; :&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./src/application.scss&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Selanjutnya buat direktori:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;app/javascript/packs/src
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;app/javascript/packs/src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Dan buat berkas di dalamnya bernama &lt;code class=&quot;highlighter-rouge&quot;&gt;application.scss&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;application.scss
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim application.scss
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Kemudian isi dengan skrip di bawah ini:&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'~bootstrap/scss/bootstrap'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Langkah terakhir:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rails assets:precompile
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rails webpacker:compile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Sekarang &lt;code class=&quot;highlighter-rouge&quot;&gt;rails&lt;/code&gt; kalian sudah terintegrasi dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;bootstrap&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Install Rails 5.2.x in Termux</title>
+   <link href="http://localhost:4000/pasang-rails-5-di-termux"/>
+   <updated>2020-02-22T21:47:37+07:00</updated>
+   <id>http://localhost:4000/pasang-rails-5-di-termux</id>
+   <content type="html">&lt;p&gt;Hanya bermodal smartphone, kalian sudah bisa belajar pemrograman ruby. Kalian hanya perlu pasang Termux dari PlayStore, kemudian pasang &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; di dalam Termux. Caranya sama seperti postingan sebelumnya.&lt;/p&gt;
+
+&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;Kali ini saya ingin membagikan kepada kalian tentang bagaimana cara memasang Ruby on Rails di Termux Smartphone.&lt;/p&gt;
+
+&lt;p&gt;Menurut pengalaman, kita tidak bisa memasang Rails terbaru, yakni Rails 6. Hanya bisa sampai di Rails 5. Untuk permasalahannya, saya sendiri belum tahu persis, yang jelas ketika di reproduce, terjadi error pada saat meng-compile gem &lt;code class=&quot;highlighter-rouge&quot;&gt;sass&lt;/code&gt;. Jadi untuk sementara pakai versi 5.&lt;/p&gt;
+
+&lt;p&gt;Kemudian untuk versi ruby yang dipakai. Hanya bisa sampai versi 2.5.x. Tidak pada versi 2.6.x atau lebih. Permasalah yang timbul pada ruby versi 2.6.x adalah gagalnya meng-compile bigint di Rails. Lagi-lagi saya juga tidak tahu kenapa. Wkwkwk suram memang.&lt;/p&gt;
+
+&lt;h2 id=&quot;kebutuhan-deploy&quot;&gt;Kebutuhan deploy&lt;/h2&gt;
+
+&lt;p&gt;Sebelum memulai pastikan di Termux kalian sudah memasang kebutuhan deploy. Kalian tinggal pasang tools berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pkg &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;clang make libxml2 libxslt libffi libsqlite nodejs vim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;install-ruby-257&quot;&gt;Install Ruby 2.5.7&lt;/h2&gt;
+
+&lt;p&gt;Jangan pakai ruby 2.6.x atau lebih. Maksimal versi 2.5.x seperti yang saya jelaskan diintro di atas.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;2.5.7
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;2.5.7
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+ruby 2.5.7p206 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2019-10-01 revision 67816&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;aarch64-linux]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pasang-gem&quot;&gt;Pasang Gem&lt;/h2&gt;
+
+&lt;p&gt;Beberapa gem ada yang menggunakan system library.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; bundler
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; pkg-config
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; nokogiri &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--use-system-libraries&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pasang-rails-52x&quot;&gt;Pasang Rails 5.2.x&lt;/h2&gt;
+
+&lt;p&gt;Di Termux hanya versi rails 5.2.x yang dapat berjalan mulus. Versi 6 tidak bisa.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; rails &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; 5.2.4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;buat-projek-rails&quot;&gt;Buat Projek Rails&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rails new blog
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;blog/
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim Gemfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tambahkan pada paling bawah &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;s1&quot;&gt;'tzinfo'&lt;/span&gt;
+gem &lt;span class=&quot;s1&quot;&gt;'tzinfo-data'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lalu jalankan&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;tes-projek&quot;&gt;Tes Projek&lt;/h3&gt;
+
+&lt;p&gt;Untuk memastikan rails sudah berjalan atau belum kalian bisa tes dengan perintah:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rails s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Jika tidak terjadi error artinya semua instalasi sukses, dan kalian bisa buka projek rails kalian di browser.&lt;/p&gt;
+
+&lt;p&gt;Selamat belajar.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Install Rbenv</title>
+   <link href="http://localhost:4000/install-rbenv"/>
+   <updated>2020-01-31T21:47:37+07:00</updated>
+   <id>http://localhost:4000/install-rbenv</id>
+   <content type="html">&lt;p&gt;Sebelum memulai belajar pemrograman ruby. Langkah pertama tentunya ialah memasang ruby di sistem operasi. Mungkin beberapa sistem operasi sudah terpasang secara asali (default). Contohnya pengguna macOS. Bagi yang belum ada kalian bisa pasang sesuai dengan sistem operasi yang kalian pergunakan.&lt;/p&gt;
+
+&lt;p&gt;Untuk mengetahui kalian sudah memasang ruby atau belum, kalian bisa cek di Terminal Emulator dengan perintah berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jika berhasil maka akan keluar informasi seperti ini:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby 2.7.0p0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2019-12-25 revision 647ee6f091&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x86_64-linux]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kalau tidak berarti kalian perlu memasangnya.&lt;/p&gt;
+
+&lt;p&gt;Untuk memasang ruby, saya menyarankan kalian pergunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; mengapa? Karena untuk menyamakan versi ruby yang dipakai. Biasanya sistem operasi hanya menyediakan versi ruby tertentu, yang biasanya hanya pada versi ruby lawas. Sehingga ada beberapa method tidak terdapat dalam versi tersebut. Nah dengan rbenv inilah kalian dapat mengontrol versi ruby mana yang akan kalian pakai nantinya.&lt;/p&gt;
+
+&lt;h2 id=&quot;apa-itu-rbenv&quot;&gt;Apa itu rbenv?&lt;/h2&gt;
+
+&lt;p&gt;Rbenv adalah suatu aplikasi yang memiliki tugas mengatur berbagai macam versi ruby dalam satu lingkungan sistem operasi. Dengan adanya rbenv memungkinkan kalian dapat memasang multi versi dari ruby tanpa harus khawatir bentrok dengan dependensi.&lt;/p&gt;
+
+&lt;h2 id=&quot;mengapa-perlu-rbenv&quot;&gt;Mengapa Perlu rbenv?&lt;/h2&gt;
+
+&lt;p&gt;Memaasang ruby dari bawaan manajer paket dari sistem operasi. Biasanya kita hanya akan mendapatkan versi stable-nya saja. Versi stable biasanya versi lawas. Memang bagus dengan versi stable. Akan tetapi, jika kalian memiliki rasa penasaran dengan versi teranyar karena ingin tahu beberapa perubahan maka disitulah gunanya rbenv.&lt;/p&gt;
+
+&lt;h2 id=&quot;cara-pasang-rbenv&quot;&gt;Cara Pasang rbenv&lt;/h2&gt;
+
+&lt;p&gt;Sebelum memasang rbenv pastikan kalian sudah memasang &lt;code class=&quot;highlighter-rouge&quot;&gt;git&lt;/code&gt;. Jika sudah, langsung saja:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Klon repositori rbenv dengan mengikuti perintah berikut:
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Set rbenv di &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; variabel. Seperti berikut:&lt;/p&gt;
+
+    &lt;p&gt;Bagi pengguna &lt;strong&gt;bash&lt;/strong&gt;&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Bagi pengguna &lt;strong&gt;zsh&lt;/strong&gt;&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Set up rbenv di shell kalian.
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;~/.rbenv/bin/rbenv init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Maka akan keluar informasi berikut:&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c&quot;&gt;# Load rbenv automatically by appending&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# the following to ~/.bashrc:&lt;/span&gt;
+
+ &lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;rbenv init -&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Nah, tinggal masukan &lt;code class=&quot;highlighter-rouge&quot;&gt;eval &quot;$(rbenv init -)&quot;&lt;/code&gt; di &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Restart terminal kalian dengan cara tutup lalu buka kembali.&lt;/li&gt;
+  &lt;li&gt;Pasang plugin &lt;code class=&quot;highlighter-rouge&quot;&gt;ruby-build&lt;/code&gt; yang berguna untuk mengkompil kode sumber ruby.
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;rbenv root&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;/plugins
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/rbenv/ruby-build.git &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;rbenv root&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;/plugins/ruby-build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cek apakah kalian sudah benar memasang rbenv?
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Outpunya:&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Checking &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;rbenv&lt;span class=&quot;s1&quot;&gt;' in PATH: /home/ali/.rbenv/bin/rbenv
+ Checking for rbenv shims in PATH: OK
+ Checking `rbenv install'&lt;/span&gt; support: /home/ali/.rbenv/plugins/ruby-build/bin/rbenv-install &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ruby-build 20200115-1-g4082f9e&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ Counting installed Ruby versions: none
+   There aren&lt;span class=&quot;s1&quot;&gt;'t any Ruby versions installed under `~/.rbenv/versions'&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+   You can &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;Ruby versions like so: rbenv &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;2.2.4
+ Checking RubyGems settings: OK
+ Auditing installed plugins: OK
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;memasang-ruby&quot;&gt;Memasang Ruby&lt;/h2&gt;
+
+&lt;p&gt;Pemasangan rbenv sudah selesai langkah selanjutnya adalah kita pasang ruby. Adapun cara pasangnya sangatlah mudah, kalian hanya perlu melakukan perintah berikut:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;2.7.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jika kalian ingin versi ruby yang lainnya, kalian bisa pasang dengan melihat versi yang kalian mau. Berikut caranya:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--list&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;set-ruby-global&quot;&gt;Set Ruby Global&lt;/h2&gt;
+
+&lt;p&gt;Langkah terakhir adalah menjadikan ruby yang tadi kita telah pasang dapat diakses di mana saja.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv global 2.7.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Untuk memastikan bisa kalian tes dengan perintah berikut:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+ruby 2.7.0p0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2019-12-25 revision 647ee6f091&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x86_64-linux]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;set-ruby-local-directory&quot;&gt;Set Ruby Local Directory&lt;/h2&gt;
+
+&lt;p&gt;Jika kalian hanya ingin versi ruby lainnya di direktori tertentu. Contoh, saya punya 2 ruby versi 2.7.0 dan 2.6.5. Saya ingin di salah satu direktori projek saya menggunakan ruby 2.6.5 sedangkan yang lain tetap menggunakan ruby 2.7.0. Nah berikut caranya:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /my/ruby/project/
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rbenv &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;2.6.5
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+ruby 2.6.5p114 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2019-10-01 revision 67812&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x86_64-linux]
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+ruby 2.7.0p0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2019-12-25 revision 647ee6f091&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x86_64-linux]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Lihat versi di direktori &lt;code class=&quot;highlighter-rouge&quot;&gt;/my/ruby/project&lt;/code&gt; menggunakan versi 2.6.5 sedangkan versi globalnya menggunakan 2.7.0&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+
+</feed>

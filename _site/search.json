@@ -1,0 +1,69 @@
+[
+  
+    {
+
+      "title"    : "Integrasi Bulma dan Material Design Icon di Rails 6 dengan Webpacker",
+      "url"      : "/integrasi-bulma-dan-material-design-icon-di-rails-6-dengan-webpacker",
+      "category" : "",
+      "tags"     : "rails6",
+      "date"     : "2020-03-31 11:04:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
+      "title"    : "Script Mengganti Versi pada File Migration",
+      "url"      : "/script-mengganti-versi-pada-file-migration",
+      "category" : "",
+      "tags"     : "",
+      "date"     : "2020-03-23 15:04:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
+      "title"    : "Menjalankan Rails 6 di Nginx dengan Puma",
+      "url"      : "/menjalankan-rails-6-di-nginx-dengan-puma",
+      "category" : "rails",
+      "tags"     : "rails6, puma, nginx",
+      "date"     : "2020-02-25 14:48:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
+      "title"    : "Integrasi Bootstrap di Rails 6 dengan Webpack",
+      "url"      : "/integrasi-bootstrap-di-rails-6-dengan-webpack",
+      "category" : "rails",
+      "tags"     : "rails6, bootstrap, webpack",
+      "date"     : "2020-02-25 14:34:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
+      "title"    : "Install Rails 5.2.x in Termux",
+      "url"      : "/pasang-rails-5-di-termux",
+      "category" : "ruby25, termux, rails5",
+      "tags"     : "",
+      "date"     : "2020-02-22 21:47:37 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
+      "title"    : "Install Rbenv",
+      "url"      : "/install-rbenv",
+      "category" : "rbenv",
+      "tags"     : "",
+      "date"     : "2020-01-31 21:47:37 +0700",
+      "discription" : ""
+
+    } 
+  
+]
