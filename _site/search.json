@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "Rails 101 - Pembukaan",
+      "url"      : "/rails-101-pembukaan",
+      "category" : "rails101",
+      "tags"     : "",
+      "date"     : "2020-04-22 09:50:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
       "title"    : "Rspec - Setup Capybara dengan Selenium Firefox dan Chrome Driver",
       "url"      : "/rspec-setup-capybara-dengan-selenium-firefox-dan-chrome-driver",
       "category" : "rspec, rails, capybara, selenium",
