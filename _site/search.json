@@ -2,6 +2,28 @@
   
     {
 
+      "title"    : "Install Rails 6 di Termux",
+      "url"      : "/install-rails-6-di-termux",
+      "category" : "rails",
+      "tags"     : "rails6, termux",
+      "date"     : "2020-07-06 18:58:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
+      "title"    : "Migrasi Sprockets ke Webpacker",
+      "url"      : "/migrasi-sprokets-ke-webpacker",
+      "category" : "rails",
+      "tags"     : "",
+      "date"     : "2020-06-24 15:44:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
       "title"    : "Rails 101 - Pembukaan",
       "url"      : "/rails-101-pembukaan",
       "category" : "rails101",

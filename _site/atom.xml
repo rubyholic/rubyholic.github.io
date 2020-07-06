@@ -4,13 +4,314 @@
  <title>RubyHolic</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-04-22T10:43:27+07:00</updated>
+ <updated>2020-07-06T20:55:15+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Ali</name>
    <email>me@situsali.id</email>
  </author>
 
+ 
+ <entry>
+   <title>Install Rails 6 di Termux</title>
+   <link href="http://localhost:4000/install-rails-6-di-termux"/>
+   <updated>2020-07-06T18:58:00+07:00</updated>
+   <id>http://localhost:4000/install-rails-6-di-termux</id>
+   <content type="html">&lt;p&gt;Saya pernah bilang dipostingan sebelumnya bahwa di Termux kita tidak bisa memasang rails 6. Dikarenakan ada dependensi yang harus di-compile, yakni &lt;code class=&quot;highlighter-rouge&quot;&gt;saasc&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;nokogirii&lt;/code&gt;. Termux gagal meng-compile dependensi tersebut. Akibatnya rails 6 tidak bisa dijalankan.&lt;/p&gt;
+
+&lt;p&gt;Sejak hadir Ruby 2.7.1, entah mengapa dependensi tersebut berhasil di-compile. Ini bukan magic! Yang ada saya tidak tahu cara kerjanya 😅&lt;/p&gt;
+
+&lt;p&gt;Sebelum memulai pastikan kalian sudah memasang &lt;code class=&quot;highlighter-rouge&quot;&gt;git&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt; dan Ruby 2.7.1.&lt;/p&gt;
+
+&lt;p&gt;Kalau sudah, kita tinggal pasang dependensi berikut untuk proses compile pada gem source.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pkg &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;make clang libxml2 pkg-config libxslt yarn sqlite postgresql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kemudian pasang gem berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nokogiri &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--use-system-libraries&lt;/span&gt;
+gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;sassc &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--use-system-libraries&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nah baru deh dipasang rails-nya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; rails
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Terakhir test buat project.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails new blog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Biasanya akan terjadi galat. Mengapa? karena di Termux tidak terdapat &lt;code class=&quot;highlighter-rouge&quot;&gt;tzinfo-data&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Kita tinggal sunting saja Gemfilenya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim Gemfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tambahkan gem berikut di akhir baris.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem tzinfo-data
+gem tzinfo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lalu bundle ulang.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Migrasi Sprockets ke Webpacker</title>
+   <link href="http://localhost:4000/migrasi-sprokets-ke-webpacker"/>
+   <updated>2020-06-24T15:44:00+07:00</updated>
+   <id>http://localhost:4000/migrasi-sprokets-ke-webpacker</id>
+   <content type="html">&lt;p&gt;Saya senang sekali webpacker telah hadir secara default di rails 6 sebagai penanganan web assets. Dengan hadirnya webpacker kita bisa menggeser untuk tidak menggunakan sprockets. Meski demikian, kita bisa menggunakan keduanya secara bersamaan.&lt;/p&gt;
+
+&lt;p&gt;Ketika kalian menggunakan rails 6 dan membuat project dengan menggunakan perintah:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails new your_project
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Perintah di atas, sudah menyertakan webpacker sebagai penangan &lt;code class=&quot;highlighter-rouge&quot;&gt;js&lt;/code&gt; dan sprockets sebagai penanganan &lt;code class=&quot;highlighter-rouge&quot;&gt;css&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Bagi saya cukup boros mengunakan dua engine untuk menangani masalah assets. Padahal cukup menggunakan webpacker, itu sudah bisa semua.&lt;/p&gt;
+
+&lt;p&gt;Kalau kalian baru memulai membuat project di rails 6. Saya menyarankan gunakan perintah:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails new your_project --skip-sprockets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Bagimana yang sudah terlanjur menggunakan dua engine webpacker dan sprockets di rails? Atau tidak menggunakan rails 6 namun ingin pakai webpacker?&lt;/p&gt;
+
+&lt;p&gt;Nah, tulisan inilah saya mencoba berbagi berdasarkan pengalaman saat migrasi dari sprockets menuju webpacker.&lt;/p&gt;
+
+&lt;h2 id=&quot;penggunan-rails-5-atau-ke-bawah&quot;&gt;Penggunan Rails 5 atau ke bawah&lt;/h2&gt;
+
+&lt;p&gt;Di mulai dari para penggunakan rails &amp;lt;= 5. Pertama-tama kalian pasang dulu gem webpacker di GemFile.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'webpacker'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lalu pasang webpacker tersebut pada rails.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle
+rails webpacker:install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kemudian kalian ubah skrip &lt;code class=&quot;highlighter-rouge&quot;&gt;javascript_include_tag&lt;/code&gt; menjadi &lt;code class=&quot;highlighter-rouge&quot;&gt;javascript_pack_tag&lt;/code&gt; di &lt;code class=&quot;highlighter-rouge&quot;&gt;view/layouts&lt;/code&gt;. Begitu juga untuk &lt;code class=&quot;highlighter-rouge&quot;&gt;stylesheet_include_tag&lt;/code&gt; ganti menjadi &lt;code class=&quot;highlighter-rouge&quot;&gt;stylesheet_pack_tag&lt;/code&gt;.o&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- javascript_include_tag
++ javascript_pack_tag
+
+- stylesheet_include_tag
++ stylesheet_pack_tag
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Dengan mengubah skrip di atas, seharusnya tampilan web kalian menjadi berantakan. Karena css dan js bawaan sprockets tidak di load.&lt;/p&gt;
+
+&lt;p&gt;Terakhir, buat berkas &lt;code class=&quot;highlighter-rouge&quot;&gt;application.js&lt;/code&gt; di direktori &lt;code class=&quot;highlighter-rouge&quot;&gt;app/javascript/packs&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; app/javascript/packs
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;application.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Susunan berkasnya seperti berikut:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/javascript:
+ └── packs:
+   └── application.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;test-pastikan-webpacker-sudah-berjalan&quot;&gt;Test Pastikan Webpacker sudah berjalan&lt;/h2&gt;
+
+&lt;p&gt;Nah untuk memastikan webpacker sudah berjalan atau belum kalian bisa mengetesnya dengan skrip sederhana berikut yang terletak pada &lt;code class=&quot;highlighter-rouge&quot;&gt;app/javascript/packs/application.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Hello world from Webpacker&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kalau sudah terlihat di browser, selamat webpacker sudah terpasang baik di rails kalian!&lt;/p&gt;
+
+&lt;h2 id=&quot;konfigurasi-webpacker&quot;&gt;Konfigurasi Webpacker&lt;/h2&gt;
+
+&lt;p&gt;Sebelum bermigrasi, adakalanya kita mesti konfigurasi dulu webpacker-nya.&lt;/p&gt;
+
+&lt;p&gt;Langkah pertama ialah, rename direktori &lt;code class=&quot;highlighter-rouge&quot;&gt;app/javascript&lt;/code&gt; menjadi &lt;code class=&quot;highlighter-rouge&quot;&gt;app/webpacker&lt;/code&gt;. Karena kita ingin semua assets ditangani oleh webpacker maka direktori javascript diubah menjadi webpacker.&lt;/p&gt;
+
+&lt;p&gt;Sebetulnya, tidak di-rename juga tidak apa-apa. Namun menurut saya itu tidak bagus. Karena di dalam direktori tersubut, nantinya kita juga akan memasukan css, images, fonts, dan berkas aset lainnya selain js. Makanya lebih baik diganti namanya menjadi webpacker.&lt;/p&gt;
+
+&lt;p&gt;Untuk mengubahnya kalian ubah pada berkas &lt;code class=&quot;highlighter-rouge&quot;&gt;config/webpacker.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim config/webpacker.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sourch_path: app/webpacker
+extract_css: true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Setelah itu buat direktori seperti berikut:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/webpacker:
+├── fonts
+├── images
+├── packs
+│  └── application.js
+└── src
+   ├── javascripts
+   └── stylesheets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;dengan perintah:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;fonts,images,src/javascripts,src/stylessheets&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Dengan susunan direktori seperti di atas. Kalian dapat memindahkan semua css/scss ke &lt;code class=&quot;highlighter-rouge&quot;&gt;app/webpacker/src/stylessheets&lt;/code&gt; begitu juga dengan js, pindahkan semua ke &lt;code class=&quot;highlighter-rouge&quot;&gt;app/webpacker/src/javascripts&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;migrasi-cssscss&quot;&gt;Migrasi CSS/SCSS&lt;/h2&gt;
+
+&lt;p&gt;Setelah melakukan konfigurasi pada webpacker. Langkah selanjutnya kita pindahkan semua css/scss ke &lt;code class=&quot;highlighter-rouge&quot;&gt;app/webpacker/src/stylessheets&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Jika sudah, kita import css/scss terusebut di &lt;code class=&quot;highlighter-rouge&quot;&gt;packs/application.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim app/webpacker/packs/application.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bulma&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;../src/stylessheets/my_css&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tanpa perlu extention, webpacker sudah langsung otomatis tau.&lt;/p&gt;
+
+&lt;p&gt;Kalian bisa perhatikan cara import baris pertama dan kedua berbeda. Mengapa bisa beda? Karena baris pertama di dapat dari &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; yakni dengan perintah:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add bulma
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;menggunakan-applicationscss-optional&quot;&gt;Menggunakan application.scss (Optional)&lt;/h3&gt;
+
+&lt;p&gt;Cara di atas, kita meng-import berkas stylesheets dari js. Sebetulnya kita juga bisa menggunakan berkas di &lt;code class=&quot;highlighter-rouge&quot;&gt;packs/application.scss&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Caranya pun hampir sama. Pertama buat dulu berkasnya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;app/webpacker/packs/application.scss
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lalu kalian tinggal import seperti ini:&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'~bulma/scss/bulma'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'../src/stylesheets/my_css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Nah untuk baris pertama, caranya beda lagi. Kalau kita ingin import dari &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules&lt;/code&gt; di scss, ditambah tilda &lt;code class=&quot;highlighter-rouge&quot;&gt;~&lt;/code&gt; untuk meng-import berkas-berkas yang bersumber dari &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;migrasi-javascript&quot;&gt;Migrasi Javascript&lt;/h2&gt;
+
+&lt;p&gt;Setelah semua stylesheet dipindakan. Selanjutnya berkas js juga dipindahkan.&lt;/p&gt;
+
+&lt;p&gt;Nah, caranya juga sama. Tinggal import lagi di &lt;code class=&quot;highlighter-rouge&quot;&gt;packs/application.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim app/webpacker/packs/application.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bulma&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;../src/javascript/my_script&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;migrasi-images&quot;&gt;Migrasi Images&lt;/h2&gt;
+
+&lt;p&gt;Untuk berkas gambar. Kalian masukan di &lt;code class=&quot;highlighter-rouge&quot;&gt;webpacker/images&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dan sunting &lt;code class=&quot;highlighter-rouge&quot;&gt;packs/application.js&lt;/code&gt; nya menjadi&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;../images&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jangan lupa. Ganti semua skrip yang menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;asset_path&lt;/code&gt; menjadi &lt;code class=&quot;highlighter-rouge&quot;&gt;image_pack_path&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; - asset_path('icon.png')
+ + image_pack_path('icon.png')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jika dalam berkas stylesheet (css/scss) kalian ada yang meng-import gambar. Lakukan seperti contoh di bawah:&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nc&quot;&gt;.google-icon&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;image-url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'btn_google_dark.svg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('../images/btn_google_dark.svg')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tanda minus berarti diapus dan tanda plus berarti digantikan.&lt;/p&gt;
+
+&lt;h2 id=&quot;migrasi-fonts&quot;&gt;Migrasi Fonts&lt;/h2&gt;
+
+&lt;p&gt;Nah ini bagian terakhir dari sesi pemindahan. Sama seperti diberkas lainnya. Kalian mesti memindahkannya di &lt;code class=&quot;highlighter-rouge&quot;&gt;app/webpacker/fonts&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Dan jangan lupa ganti discript stylesheets kalian:&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;YourFontFamily&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('../fonts/yourfile.ttf')&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'truetype'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;hapus-sprockets-hingga-keakar-akarnya&quot;&gt;Hapus Sprockets Hingga Keakar-akarnya!&lt;/h2&gt;
+
+&lt;p&gt;Kalian sudah memindahkan seluruh assets ke webpacker. Namun, itu semua belum sepenuhnya migrasi. Kita masih tetap bisa menggunakan sprockets.&lt;/p&gt;
+
+&lt;p&gt;Kalau kalian ingin menghapus hingga keakar-akarnya. Kalian perlu melakukan ini:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Buang gem &lt;code class=&quot;highlighter-rouge&quot;&gt;sass-rails&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;p&gt;Hapus atau beri comment &lt;code class=&quot;highlighter-rouge&quot;&gt;sass-rails&lt;/code&gt; dari GemFile&lt;/p&gt;
+
+    &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;# gem 'sass-rails'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; bundle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hapus &lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;sprockets/railtie&quot;&lt;/code&gt; dari &lt;code class=&quot;highlighter-rouge&quot;&gt;config/application.rb&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;# require &quot;sprockets/railtie&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hapus &lt;code class=&quot;highlighter-rouge&quot;&gt;config.assets.*&lt;/code&gt; dari dua file &lt;code class=&quot;highlighter-rouge&quot;&gt;development.rb&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;production.rb&lt;/code&gt; dari &lt;code class=&quot;highlighter-rouge&quot;&gt;config/environment&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;config/environment
+ vim development.rb
+ vim production.rb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Kode yang dihapus&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; config.assets.debug = true
+ config.assets.quiet = true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Hapus file &lt;code class=&quot;highlighter-rouge&quot;&gt;config/initializers/assets.rb&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;(Optional) Hapus direktori &lt;code class=&quot;highlighter-rouge&quot;&gt;app/assets&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;test-it&quot;&gt;Test it!&lt;/h2&gt;
+
+&lt;p&gt;Langkah terakhir, yakni tes! Kalian bisa lakukan perintah berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails assets:precompile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kalau tidak terjadi error berarti kalian sudah sukses mengapus sprockets dari rails kalian!&lt;/p&gt;
+
+&lt;p&gt;Semoga bermanfaat :)&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Rails 101 - Pembukaan</title>
