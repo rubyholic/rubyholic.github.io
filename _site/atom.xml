@@ -4,13 +4,73 @@
  <title>RubyHolic</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-12-25T12:42:29+07:00</updated>
+ <updated>2021-12-25T14:29:57+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Ali</name>
    <email>me@situsali.id</email>
  </author>
 
+ 
+ <entry>
+   <title>Termux Baru Masalah Baru Buat Ruby</title>
+   <link href="http://localhost:4000/termux-baru-masalah-baru-buat-ruby"/>
+   <updated>2021-12-25T13:26:00+07:00</updated>
+   <id>http://localhost:4000/termux-baru-masalah-baru-buat-ruby</id>
+   <content type="html">&lt;p&gt;Jadi kemarin niatnya kan saya mau bersih-bersih isi Termux, karena dirasa udah banyak sampah &lt;em&gt;bejibun&lt;/em&gt; di sana. Maklum dulu buat coba-coba dan udah 2 tahun gak diutak-atik itu Termux.&lt;/p&gt;
+
+&lt;p&gt;Biasalah, kalau di Android cara paling gampang bersih-bersih ya lewat &lt;code class=&quot;highlighter-rouge&quot;&gt;clear cache&lt;/code&gt; dari application info.&lt;/p&gt;
+
+&lt;p&gt;Namun masalah baru timbul setelah &lt;code class=&quot;highlighter-rouge&quot;&gt;clear cache&lt;/code&gt;. Pertama, saya baru tau kalau Termux di PlayStore udah deprecated sejak tanggal 20 November 2020.&lt;/p&gt;
+
+&lt;p&gt;Jadi kalau kita mau pake versi terbaru cuma ada di F-Droid. Alasannya karena Android 10 mewajibkan aplikasinya memakai SDK minimal versi 29.&lt;/p&gt;
+
+&lt;p&gt;Intinya sih, karena SDK baru bikin ngebreak si Termux shellnya jadi gak jalan. Makanya gak dilanjutin pengembangannya di PlayStore. Ente bisa baca-baca di sini &lt;a href=&quot;https://www.xda-developers.com/termux-terminal-linux-google-play-updates-stopped/&quot;&gt;https://www.xda-developers.com/termux-terminal-linux-google-play-updates-stopped/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Padahal waktu di versi PlayStore saya udah beli &lt;code class=&quot;highlighter-rouge&quot;&gt;Termux Styling&lt;/code&gt; eh sekarang malah gak bisa jalan, rugi deh wkwkwkw.&lt;/p&gt;
+
+&lt;p&gt;Gak juga sih, saya beli karena emang support developernya. Soalnya adanya Termux, saya bener-bener terbantu.&lt;/p&gt;
+
+&lt;p&gt;Akhirnya saya pasang Termux dari F-Droid. Di sana juga udah ada Termux Styling gratis pula, jadi bisa langsung pake.&lt;/p&gt;
+
+&lt;p&gt;Kenapa sih saya butuh Termux Styling? Krena saya butuh warna-warna biar keliatan gak kek heker gitu yg cuma sukanya item-putih doang wkwkwk.&lt;/p&gt;
+
+&lt;p&gt;Juga saya butuh font &lt;code class=&quot;highlighter-rouge&quot;&gt;JetBrains Mono&lt;/code&gt;, ini font biasa saya pake di desktop, cakep dan support ligatures. Jadi tetep keren meskipun ngoding di Neovim, gak kalah deh sama IDE hehehe.&lt;/p&gt;
+
+&lt;p&gt;Bisa aja sih tanpa Termux Styling, toh cuma edit konfigurasinya di directory &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.termux&lt;/code&gt;. Tapi saya males, pake aja yang udah mudah wkwkwk.&lt;/p&gt;
+
+&lt;p&gt;Nah Termux udah dipasang udah saya setup juga sesuai dengan konfigurasi yang biasa saya pake buat ngoding.&lt;/p&gt;
+
+&lt;p&gt;Biasa deh cuma masang, &lt;code class=&quot;highlighter-rouge&quot;&gt;tmux&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;neovim&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;git&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;openssh&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;build-essetial&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;nodejs&lt;/code&gt;, dan &lt;code class=&quot;highlighter-rouge&quot;&gt;postgresql&lt;/code&gt;. Kamaren-kemaren saya tambahin juga &lt;code class=&quot;highlighter-rouge&quot;&gt;php&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;mariadb&lt;/code&gt; sih, cuma sekarang enggak. Termux saya pake buat ngoding ruby aja.&lt;/p&gt;
+
+&lt;p&gt;Dari sini semua gak ada masalah, namun muncul ketika saya meng-compile Ruby 3 dari rbenv. Yakni error gak bisa dicompile. Gak tau ini masalahnya di mana, padahal dependensi sudah saya install.&lt;/p&gt;
+
+&lt;p&gt;Sebelum di clear cache itu Termux bisa Ruby 3 di pasang, kenapa sekarang malah jadi gak bisa wkwkkw. Saya pikir ini masalah di rbenv. Yaudah saya coba pindah ke &lt;code class=&quot;highlighter-rouge&quot;&gt;rvm&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Kenapa pindah ke rvm? Biasanya rvm nyediain versi binarynya, kalaupun gak ada ia otomatis compile dari source Ruby dengan dipasangin dependensinya otomatis.&lt;/p&gt;
+
+&lt;p&gt;Tapinya tetep gak bisa lewat rvm, baru mau download dependensi udah ditolak.&lt;/p&gt;
+
+&lt;p&gt;Oh iya, Termux yang baru juga sudah menghilangkan paket-paket yang berakhiran &lt;code class=&quot;highlighter-rouge&quot;&gt;-dev&lt;/code&gt;. Semua dijadiin satu dengan paketnya. Contoh kamu mau install &lt;code class=&quot;highlighter-rouge&quot;&gt;libssl&lt;/code&gt;, biasanya ada dipake &lt;code class=&quot;highlighter-rouge&quot;&gt;libssl-dev&lt;/code&gt; tapi sekarang cukup pasang &lt;code class=&quot;highlighter-rouge&quot;&gt;libssl&lt;/code&gt; aja karena versi devnya sudah termasuk.&lt;/p&gt;
+
+&lt;p&gt;Beruntung kebetulan ruby versi 3 ada direpository Termux, saya pasang ruby dari repo aja gak dari rbenv atau rvm. Yuhuuu.. senengnya …&lt;/p&gt;
+
+&lt;p&gt;Tapi kesenangan berakhir, masalah baru lagi muncul pas saya mau pasang Rails dan Jekyll, yakni gak bisa compile gems &lt;code class=&quot;highlighter-rouge&quot;&gt;saasc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;nokogiri&lt;/code&gt;, dan lain-lain pokoknya gems yang pake compile dah. Semuanya gak bisa dicompile.&lt;/p&gt;
+
+&lt;p&gt;Hemat saya ini bukan karena dependensinya gak ada, tapi karena pembatasan dari Android 10. Haduh, kecewa deh.&lt;/p&gt;
+
+&lt;p&gt;Tapi alhamdulillah nih, masih ada aplikasi &lt;code class=&quot;highlighter-rouge&quot;&gt;AnLinux&lt;/code&gt;, yakni GNU/Linux minimal yang bisa dipasang di Termux.
+Deskripsi aplikasinya &lt;code class=&quot;highlighter-rouge&quot;&gt;Run Linux on Android Without Root Access&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Keliatanya asik nih, saya emang males banget ngeroot HP, soalnya ribet tar sama aplikasi banking wkwkwk.&lt;/p&gt;
+
+&lt;p&gt;AnLinux isinya cuma bash script, yang mana ia nge-&lt;code class=&quot;highlighter-rouge&quot;&gt;chroot&lt;/code&gt; si rootfs nya Linux. Jadi Linux versi arm, dijalanin dari Termux. Bagus sih, intinya masih ada harapan buat saya pasang kebutuh ngoding Ruby di Termux.&lt;/p&gt;
+
+&lt;p&gt;Di AnLinux kita bisa pilih berbagai macam distro GNU/Linux yang nanti mau dijalanin. Saya pasang Ubuntu aja biar gak ribet. Tadinya mau pasang ArchLinux tapi nanti aja deh. Yang penting kebutuhan ngoding ruby saya lancar dulu.&lt;/p&gt;
+
+&lt;p&gt;Alhamdulilah berkat adanya AnLinux semuanya udah beres sekarang. Jadi bisa ngoding lagi deh wkwkwkw&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Menjalankan Aplikasi Rails 6 dengan Puma dan Nginx</title>
