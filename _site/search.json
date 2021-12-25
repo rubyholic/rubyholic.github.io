@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "Menjalankan Aplikasi Rails 6 dengan Puma dan Nginx",
+      "url"      : "/menjalankan-aplikasi-rails-6-dengan-puma-dan-nginx",
+      "category" : "rails",
+      "tags"     : "rails6, puma, nginx",
+      "date"     : "2020-08-03 16:38:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
       "title"    : "Install Rails 6 di Termux",
       "url"      : "/install-rails-6-di-termux",
       "category" : "rails",
