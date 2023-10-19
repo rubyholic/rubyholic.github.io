@@ -4,13 +4,84 @@
  <title>RubyHolic</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-12-25T14:29:57+07:00</updated>
+ <updated>2023-10-19T22:12:37+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Ali</name>
    <email>me@situsali.id</email>
  </author>
 
+ 
+ <entry>
+   <title>Install Rails v7 di Termux</title>
+   <link href="http://localhost:4000/install-rails-v7-di-termux"/>
+   <updated>2023-10-19T20:55:00+07:00</updated>
+   <id>http://localhost:4000/install-rails-v7-di-termux</id>
+   <content type="html">&lt;p&gt;Udah lama banget saya gak update mengenai hal-hal yang berbau Ruby atau Rails. Mengingat sudah 2 tahun saya gak ngoding Rails.&lt;/p&gt;
+
+&lt;p&gt;Biar gak lupa saya menyempatkan ngoding Rails dikit-dikit di termux di HP saya yg jelek ini :(&lt;/p&gt;
+
+&lt;p&gt;Oke langsung aja.&lt;/p&gt;
+
+&lt;p&gt;Buka termux dan pasang beberapa paket kebutuhan development berikut:&lt;/p&gt;
+
+&lt;p&gt;Sebelum pasang sebaiknya kamu update dulu package termux mu.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pkg update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pkg upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Setelah itu baru pasang dependensinya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pkg &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ruby clang make binutils pkg-config libxslt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nah, setelah itu kita pasang nokigiri disuaikan dengan device HP kita. (Ini udah pernah saya jelasin dulu pas install Rails 6 di Termux)&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nokogiri &lt;span class=&quot;nt&quot;&gt;--platform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ruby &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--use-system-libraries&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nah baru deh kita pasang railsnya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rails
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Bikin project Rails mu.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails new blog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tunggu sampai selesai proses instalasinya dan pastinya nanti akan error. Kok gitu?&lt;/p&gt;
+
+&lt;p&gt;Ini karena gem &lt;code class=&quot;highlighter-rouge&quot;&gt;tzinfo-data&lt;/code&gt; yang ada di default Gemfile di Rails tidak memasang khusus untuk device HP. (Ini juga pernah saya jelasin di artikel install Rails 6).&lt;/p&gt;
+
+&lt;p&gt;Jadi kamu cuma perlu edit di Gemfile untuk tzinfo-data seperti berikut:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &quot;tzinfo-data&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Save dan Ketik bundle install.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Beres kamu bisa ngoding rails di HP, buakakak 🤣&lt;/p&gt;
+
+&lt;h2 id=&quot;limitasi&quot;&gt;Limitasi&lt;/h2&gt;
+
+&lt;p&gt;Karena kamu pasang Railsnya di Termux di HP ya jelas banget pasti ada limitasinya.&lt;/p&gt;
+
+&lt;p&gt;Selama ini yang saya temukan cuma dua:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kamu gak bisa pasang database selain sqlite. Kalau nekat pingin pake database semisal postgresql kamu perlu server, jadi kamu jalankan melalui remote database.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kamu gak bisa pasangan tailwind-rails (ini bentuknya executable). Kalau kamu mau pake tailwind, harap pasang lewat package nodejs saja.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Termux Baru Masalah Baru Buat Ruby</title>

@@ -17,6 +17,30 @@
 "items": [
     
         {
+            "id": "http://localhost:4000/install-rails-v7-di-termux",
+            "title": "Install Rails v7 di Termux",
+            "summary": null,
+            "content_text": "Udah lama banget saya gak update mengenai hal-hal yang berbau Ruby atau Rails. Mengingat sudah 2 tahun saya gak ngoding Rails.Biar gak lupa saya menyempatkan ngoding Rails dikit-dikit di termux di HP saya yg jelek ini :(Oke langsung aja.Buka termux dan pasang beberapa paket kebutuhan development berikut:Sebelum pasang sebaiknya kamu update dulu package termux mu.pkg update &amp;&amp; pkg upgradeSetelah itu baru pasang dependensinya.pkg install ruby clang make binutils pkg-config libxsltNah, setelah itu kita pasang nokigiri disuaikan dengan device HP kita. (Ini udah pernah saya jelasin dulu pas install Rails 6 di Termux)gem install nokogiri --platform=ruby -- --use-system-librariesNah baru deh kita pasang railsnya.gem install railsBikin project Rails mu.rails new blogTunggu sampai selesai proses instalasinya dan pastinya nanti akan error. Kok gitu?Ini karena gem tzinfo-data yang ada di default Gemfile di Rails tidak memasang khusus untuk device HP. (Ini juga pernah saya jelasin di artikel install Rails 6).Jadi kamu cuma perlu edit di Gemfile untuk tzinfo-data seperti berikut:gem \"tzinfo-data\"Save dan Ketik bundle install.bundle installBeres kamu bisa ngoding rails di HP, buakakak 🤣LimitasiKarena kamu pasang Railsnya di Termux di HP ya jelas banget pasti ada limitasinya.Selama ini yang saya temukan cuma dua:      Kamu gak bisa pasang database selain sqlite. Kalau nekat pingin pake database semisal postgresql kamu perlu server, jadi kamu jalankan melalui remote database.        Kamu gak bisa pasangan tailwind-rails (ini bentuknya executable). Kalau kamu mau pake tailwind, harap pasang lewat package nodejs saja.  ",
+            "content_html": "<p>Udah lama banget saya gak update mengenai hal-hal yang berbau Ruby atau Rails. Mengingat sudah 2 tahun saya gak ngoding Rails.</p><p>Biar gak lupa saya menyempatkan ngoding Rails dikit-dikit di termux di HP saya yg jelek ini :(</p><p>Oke langsung aja.</p><p>Buka termux dan pasang beberapa paket kebutuhan development berikut:</p><p>Sebelum pasang sebaiknya kamu update dulu package termux mu.</p><div class=\"language-bash highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>pkg update <span class=\"o\">&amp;&amp;</span> pkg upgrade</code></pre></div></div><p>Setelah itu baru pasang dependensinya.</p><div class=\"language-bash highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>pkg <span class=\"nb\">install </span>ruby clang make binutils pkg-config libxslt</code></pre></div></div><p>Nah, setelah itu kita pasang nokigiri disuaikan dengan device HP kita. (Ini udah pernah saya jelasin dulu pas install Rails 6 di Termux)</p><div class=\"language-bash highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>gem <span class=\"nb\">install </span>nokogiri <span class=\"nt\">--platform</span><span class=\"o\">=</span>ruby <span class=\"nt\">--</span> <span class=\"nt\">--use-system-libraries</span></code></pre></div></div><p>Nah baru deh kita pasang railsnya.</p><div class=\"language-bash highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>gem <span class=\"nb\">install </span>rails</code></pre></div></div><p>Bikin project Rails mu.</p><div class=\"language-bash highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>rails new blog</code></pre></div></div><p>Tunggu sampai selesai proses instalasinya dan pastinya nanti akan error. Kok gitu?</p><p>Ini karena gem <code class=\"highlighter-rouge\">tzinfo-data</code> yang ada di default Gemfile di Rails tidak memasang khusus untuk device HP. (Ini juga pernah saya jelasin di artikel install Rails 6).</p><p>Jadi kamu cuma perlu edit di Gemfile untuk tzinfo-data seperti berikut:</p><div class=\"highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>gem \"tzinfo-data\"</code></pre></div></div><p>Save dan Ketik bundle install.</p><div class=\"language-bash highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>bundle <span class=\"nb\">install</span></code></pre></div></div><p>Beres kamu bisa ngoding rails di HP, buakakak 🤣</p><h2 id=\"limitasi\">Limitasi</h2><p>Karena kamu pasang Railsnya di Termux di HP ya jelas banget pasti ada limitasinya.</p><p>Selama ini yang saya temukan cuma dua:</p><ol>  <li>    <p>Kamu gak bisa pasang database selain sqlite. Kalau nekat pingin pake database semisal postgresql kamu perlu server, jadi kamu jalankan melalui remote database.</p>  </li>  <li>    <p>Kamu gak bisa pasangan tailwind-rails (ini bentuknya executable). Kalau kamu mau pake tailwind, harap pasang lewat package nodejs saja.</p>  </li></ol>",
+            "url": "http://localhost:4000/install-rails-v7-di-termux",
+            
+            
+            
+            "tags": ["ruby","termux","rails7"],
+            
+            "date_published": "2023-10-19T20:55:00+07:00",
+            "date_modified": "2023-10-19T20:55:00+07:00",
+            
+                "author":  {
+                "name": "Ali",
+                "url": "www.situsali.id",
+                "avatar": null
+                }
+                
+            
+        },
+    
+        {
             "id": "http://localhost:4000/termux-baru-masalah-baru-buat-ruby",
             "title": "Termux Baru Masalah Baru Buat Ruby",
             "summary": null,

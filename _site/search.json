@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "Install Rails v7 di Termux",
+      "url"      : "/install-rails-v7-di-termux",
+      "category" : "",
+      "tags"     : "ruby, termux, rails7",
+      "date"     : "2023-10-19 20:55:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
       "title"    : "Termux Baru Masalah Baru Buat Ruby",
       "url"      : "/termux-baru-masalah-baru-buat-ruby",
       "category" : "",
