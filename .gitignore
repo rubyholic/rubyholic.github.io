@@ -9,3 +9,4 @@ Gemfile.lock
 node_modules
 _site/*.yaml
 _site/package.json
+_site/tailwind.config.js
