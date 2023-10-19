@@ -6,3 +6,6 @@ Gemfile.lock
 .DS_Store
 .jekyll-cache
 .git
+node_modules
+_site/*.yaml
+_site/package.json
