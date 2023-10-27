@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "Setup Rails + Vite + Tailwind + Stimulus + Turbo",
+      "url"      : "/setup-rails-vite-tailwind-stimulus-turbo",
+      "category" : "",
+      "tags"     : "vite, tailwind, stimulus, turbo",
+      "date"     : "2023-10-27 22:16:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
       "title"    : "Install Tailwind di Rails Pakai NodeJS",
       "url"      : "/install-tailwind-di-rails-pakai-nodejs",
       "category" : "",
