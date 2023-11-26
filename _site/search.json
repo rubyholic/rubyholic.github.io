@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "Gak Perlu Dotenv Pakai Rails Credentials Sebagai Ganti",
+      "url"      : "/gak-perlu-dotenv-pakai-rails-credentials-sebagai-ganti",
+      "category" : "",
+      "tags"     : "",
+      "date"     : "2023-11-26 07:23:00 +0700",
+      "discription" : ""
+
+    } ,
+  
+    {
+
       "title"    : "Setup Rails + Vite + Tailwind + Stimulus + Turbo",
       "url"      : "/setup-rails-vite-tailwind-stimulus-turbo",
       "category" : "",

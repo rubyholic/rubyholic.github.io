@@ -4,13 +4,141 @@
  <title>RubyHolic</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2023-11-11T07:15:29+07:00</updated>
+ <updated>2023-11-26T19:59:06+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Ali</name>
    <email>me@situsali.id</email>
  </author>
 
+ 
+ <entry>
+   <title>Gak Perlu Dotenv Pakai Rails Credentials Sebagai Ganti</title>
+   <link href="http://localhost:4000/gak-perlu-dotenv-pakai-rails-credentials-sebagai-ganti"/>
+   <updated>2023-11-26T07:23:00+07:00</updated>
+   <id>http://localhost:4000/gak-perlu-dotenv-pakai-rails-credentials-sebagai-ganti</id>
+   <content type="html">&lt;p&gt;Sebetulnya kalau pakai Rails kita udah gak perlu lagi pake Dotenv. Karena Rails sendiri menyediakan credentials generator yang jauh lebih keren dibandingkan dotenv.&lt;/p&gt;
+
+&lt;h2 id=&quot;apa-itu-rails-credentials&quot;&gt;Apa itu Rails Credentials&lt;/h2&gt;
+
+&lt;p&gt;Rails credentials adalah tool bawaan rails untuk membuat file config berformat Yaml yang ter-encrypt.&lt;/p&gt;
+
+&lt;p&gt;Karena ter-encrypt pasti punya kuncinya. Nah kunci ini terbentuk pada saat kamu generate dengan nama file &lt;code class=&quot;highlighter-rouge&quot;&gt;master.key&lt;/code&gt; terletak di direktori &lt;code class=&quot;highlighter-rouge&quot;&gt;config&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Isi kuncinya:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;config/master.key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jadi yang perlu kamu lakukan terhadap kunci tersebut adalah simpan baik-baik jangan sampai hilang atau kecolong.&lt;/p&gt;
+
+&lt;p&gt;Keungulan Rails Credentials dibandingkan dotenv yakni file confignya ter-encrypt sehingga gak sembarang orang bisa liat. Di sisi lain, Rails Credentials udah ada sejak versi 4, jadi kita gak perlu lagi pasang &lt;code class=&quot;highlighter-rouge&quot;&gt;gem&lt;/code&gt; tambahan.&lt;/p&gt;
+
+&lt;h2 id=&quot;cara-pakai&quot;&gt;Cara Pakai&lt;/h2&gt;
+
+&lt;p&gt;Kamu cukup ketik perintah berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails credentials:edit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Lalu taru isi credentials-nya pakai format Yaml. contoh:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;google_api&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;anu-key-nya-google&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kemudian untuk aksesnya cukup pakai method.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;google_api&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Perintah di atas sudah cukup buat kamu yang baru buat project Rails dan variabel pada terminal kamu sudah terpenuhi.&lt;/p&gt;
+
+&lt;p&gt;Kalau belum? Set dulu terminal variablenya.&lt;/p&gt;
+
+&lt;h2 id=&quot;set-editor-atau-visual-variable&quot;&gt;Set $EDITOR atau $VISUAL variable&lt;/h2&gt;
+
+&lt;p&gt;Buat variable &lt;code class=&quot;highlighter-rouge&quot;&gt;$EDITOR&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;$VISUAL&lt;/code&gt; variable di &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; atau &lt;code class=&quot;highlighter-rouge&quot;&gt;.zshrc&lt;/code&gt; mu.&lt;/p&gt;
+
+&lt;p&gt;Isi variable tersebut mengikuti editor yang biasa kamu pakai contoh vscode atau vim.&lt;/p&gt;
+
+&lt;h3 id=&quot;vim&quot;&gt;Vim&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;export EDITOR=vim&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bashrc
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;export VISUAL=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$EDITOR&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bashrc
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;vscode&quot;&gt;VSCode&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;export EDITOR=&apos;code --wait&apos;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bashrc
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;export VISUAL=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$EDITOR&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bashrc
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nah kalau sudah bisa langsung lakukan edit credentials seperti command sebelumnya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails credentials:edit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tambahan&quot;&gt;Tambahan&lt;/h2&gt;
+
+&lt;h3 id=&quot;environment&quot;&gt;Environment&lt;/h3&gt;
+
+&lt;p&gt;Perlu diketahui bahwa pembuatan credentials di Rails kamu bisa set berdasarkan tiga environment yakni &lt;code class=&quot;highlighter-rouge&quot;&gt;development&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;production&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Perintahnya seperti ini:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails credentials:edit &lt;span class=&quot;nt&quot;&gt;--environment&lt;/span&gt; development
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;cara-akses&quot;&gt;Cara Akses&lt;/h3&gt;
+
+&lt;p&gt;Untuk akses variable jika cuma satu level kamu bisa menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;method&lt;/code&gt;. Kalau dua atau lebih wajib gunakan kurung dengan symbol.&lt;/p&gt;
+
+&lt;p&gt;Contoh satu level&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;google_api&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Contoh dua level&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:google&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;atau bisa pakai &lt;code class=&quot;highlighter-rouge&quot;&gt;dig&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:google&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;akan-terjadi-error&quot;&gt;Akan terjadi Error&lt;/h2&gt;
+
+&lt;p&gt;Untuk existing project mungkin akan mengalami error, kamu akan diberi peringatan bahwa &lt;code class=&quot;highlighter-rouge&quot;&gt;key&lt;/code&gt; yang kamu gunakan untuk meng-generate credentials salah, meskipun kamu belum pernah sama sekali menggunakan Rails Credentials ini.&lt;/p&gt;
+
+&lt;p&gt;Kenapa bisa begitu? Karena &lt;code class=&quot;highlighter-rouge&quot;&gt;master.key&lt;/code&gt; yang kamu gunakan sudah tidak berlaku pada saat pertama kali generate project rails atau pada saat kamu pindah komputer atau pada saat kamu baru meng-cloning repository project.&lt;/p&gt;
+
+&lt;h3 id=&quot;cara-mengatasinya&quot;&gt;Cara Mengatasinya&lt;/h3&gt;
+
+&lt;p&gt;Cara mengatasinya paling gampang kamu hapus &lt;code class=&quot;highlighter-rouge&quot;&gt;master.key&lt;/code&gt; dan semua file confignya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; config/master.key
+&lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; config/credentials&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.enc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tapi cara di atas tidak disarankan karena kamu akan menulis ulang semua config dari project mu. Cara lainya kamu bisa tanya ke senior yang buat project itu.&lt;/p&gt;
+
+&lt;p&gt;Jika dia tidak tau baru kamu perlu bikin ulang dengan menghapusnya. Kalau, dia tau kamu perlu mengganti saja isi &lt;code class=&quot;highlighter-rouge&quot;&gt;master.key&lt;/code&gt; dengan keynya.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim config/master.key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Atau bisa bypass dengan environment &lt;code class=&quot;highlighter-rouge&quot;&gt;RAILS_MASTER_KEY&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;RAILS_MASTER_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;anu-keynya bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails credentials:edit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sip sampai di sini dulu ya, moga bermanfaat hehehe 😅&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Setup Rails + Vite + Tailwind + Stimulus + Turbo</title>
